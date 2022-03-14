@@ -16,13 +16,15 @@ namespace _1911066165_DangPhuocKhoa_BigSchool.Controllers
         {
             _dbContext = new ApplicationDbContext();
         }
+        //comit 1
         public ActionResult Create()
         {
             var viewModel = new CourseViewModel
             {
-                Categories = _dbContext.Categories.ToList();
-        };
+                Categories = _dbContext.Categories.ToList()
+             };
             return View(viewModel);
         }
+
     }
 }
