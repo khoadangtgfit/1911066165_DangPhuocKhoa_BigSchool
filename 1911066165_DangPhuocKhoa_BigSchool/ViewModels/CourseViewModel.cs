@@ -13,6 +13,7 @@ namespace _1911066165_DangPhuocKhoa_BigSchool.ViewModels
         public string Time { get; set; }
         public byte Category { get; set; }
         public IEnumerable<Category> Categories { get; set; }
+        //commit lan 2
         public DateTime GetDateTime()
         {
             return DateTime.Parse(string.Format("{0}{1}", Date, Time));
