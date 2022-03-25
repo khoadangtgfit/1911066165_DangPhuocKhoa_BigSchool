@@ -1,4 +1,4 @@
-﻿body {
+﻿﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -9,6 +9,13 @@
     padding-right: 15px;
 }
 
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
@@ -16,47 +23,20 @@ textarea {
     max-width: 280px;
 }
 
-/* styles for validation helpers */
-.field-validation-error {
-    color: #b94a48;
-}
-
-.field-validation-valid {
-    display: none;
-}
-
-input.input-validation-error {
-    border: 1px solid #b94a48;
-}
-
-input[type="checkbox"].input-validation-error {
-    border: 0 none;
-}
-
-.validation-summary-errors {
-    color: #b94a48;
-}
-
-.validation-summary-valid {
-    display: none;
-}
-
-/* Override the default bootstrap Nar bar by */
-
 .navbar-inverse {
-    background-color: #d41d50;
-    border-color: #fbf6f6;
+    background-color: #0e2e20;
+    border-color: #0094ff;
 }
 
     .navbar-inverse .navbar-nav > li > a {
-        color: white;
+        color: #0094ff;
     }
 
-    .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav {
-        color: white;
+    .navbar-inverse .navbar-brand {
+        color: #4cff0f;
     }
 
-/*Course layout*/
+/*course layout ( des by Khoa)*/
 .course {
     list-style: none;
 }
@@ -66,27 +46,23 @@ input[type="checkbox"].input-validation-error {
         margin-bottom: 30px;
     }
 
-        .course > li > .date {
+        .course > li .date {
             text-align: center;
-            background-color: #d41d50;
+            background-color: #ff0000;
             color: white;
             width: 60px;
             border-radius: 8px;
         }
 
-        .course > li > .details {
+        .course > li .details {
             position: absolute;
-            top: 0px;
+            top: 0;
             left: 70px;
-            display: grid;
         }
 
-
-        /* action */
         .course > li .action {
-            display: none;
-            left: 70px;
             position: absolute;
+            left: 70px;
         }
 
         .course > li:hover .action {

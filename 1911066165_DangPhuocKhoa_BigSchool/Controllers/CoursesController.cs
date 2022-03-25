@@ -110,8 +110,6 @@ namespace _1911066165_DangPhuocKhoa_BigSchool.Controllers
             return View(courses);
         }
 
-        
-
         [Authorize]
         public ActionResult Edit(int id)
         {

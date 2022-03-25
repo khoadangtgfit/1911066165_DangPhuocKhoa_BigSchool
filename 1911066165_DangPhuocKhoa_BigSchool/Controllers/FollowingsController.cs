@@ -3,6 +3,7 @@ using _1911066165_DangPhuocKhoa_BigSchool.Models;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -38,6 +39,16 @@ namespace _1911066165_DangPhuocKhoa_BigSchool.Controllers
             _DbContext.SaveChanges();
             return Ok();
         }
-
+        [HttpDelete]
+        public IHttpActionResult DeleteFollowings(string id)
+        {
+            var userId = User.Identity.GetUserId();
+            var following = _DbContext.Followings.SingleOrDefault(a => a.FollowerId == userId && a.FolloweeId.Contains(id));
+            if (following == null)
+                return NotFound();
+            _DbContext.Followings.Remove(following);
+            _DbContext.SaveChanges();
+            return Ok(id);
+        }
     }
 }

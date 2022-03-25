@@ -603,6 +603,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\CoursesController.cs" />
     <Compile Include="Controllers\AttendancesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\FollowingsController.cs" />
@@ -636,6 +637,10 @@
     <Compile Include="Migrations\202203221440364_AddNameColumnToApplicationUser.cs" />
     <Compile Include="Migrations\202203221440364_AddNameColumnToApplicationUser.Designer.cs">
       <DependentUpon>202203221440364_AddNameColumnToApplicationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203241257393_AddIsCanceledColumnToCourse.cs" />
+    <Compile Include="Migrations\202203241257393_AddIsCanceledColumnToCourse.Designer.cs">
+      <DependentUpon>202203241257393_AddIsCanceledColumnToCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -754,6 +759,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203221440364_AddNameColumnToApplicationUser.resx">
       <DependentUpon>202203221440364_AddNameColumnToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203241257393_AddIsCanceledColumnToCourse.resx">
+      <DependentUpon>202203241257393_AddIsCanceledColumnToCourse.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
