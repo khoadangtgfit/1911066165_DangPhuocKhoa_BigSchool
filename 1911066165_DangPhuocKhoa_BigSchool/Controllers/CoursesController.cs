@@ -84,16 +84,16 @@ namespace _1911066165_DangPhuocKhoa_BigSchool.Controllers
         public ActionResult Following()
         {
             var userId = User.Identity.GetUserId();
-            var followings = _dbContext.Followings
+            var viewModel = _dbContext.Followings
                 .Where(a => a.FolloweeId == userId)
                 .Select(a => a.Follower)
                 .ToList();
 
-            var viewModel = new FollowingViewModel
-            {
-                Followings = followings,
-                ShowAction = User.Identity.IsAuthenticated
-            };
+            //var viewModel = new FollowingViewModel
+            //{
+            //    Followings = followings,
+            //    ShowAction = User.Identity.IsAuthenticated
+            //};
 
             return View(viewModel);
         }

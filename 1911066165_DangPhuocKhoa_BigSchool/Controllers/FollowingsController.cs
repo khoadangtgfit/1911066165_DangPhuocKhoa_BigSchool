@@ -40,24 +40,17 @@ namespace _1911066165_DangPhuocKhoa_BigSchool.Controllers
             return Ok();
         }
         [HttpDelete]
-        public IHttpActionResult UnFollow(string followeeId, string followerId)
+        public IHttpActionResult DeleteFollow(string Id)
         {
-            var follow = _DbContext.Followings
-                .Where(x => x.FolloweeId == followeeId && x.FollowerId == followerId)
-                .Include(x => x.Followee)
-                .Include(x => x.Follower).SingleOrDefault();
-
-            var followingNotification = new FollowingNotification()
+            var userId = User.Identity.GetUserId();
+            var following = _DbContext.Followings.SingleOrDefault(f => f.FollowerId == userId && f.FolloweeId == Id);
+            if (following == null)
             {
-                Id = 0,
-                Logger = follow.Follower.Name + " unfollow " + follow.Followee.Name
-            };
-
-            _DbContext.FollowingNotifications.Add(followingNotification);
-
-            _DbContext.Followings.Remove(follow);
+                return NotFound();
+            }
+            _DbContext.Followings.Remove(following);
             _DbContext.SaveChanges();
-            return Ok();
+            return Ok(Id);
         }
-        }
+    }
 }
