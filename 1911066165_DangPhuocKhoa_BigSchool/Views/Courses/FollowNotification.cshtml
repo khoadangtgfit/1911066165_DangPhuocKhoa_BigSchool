@@ -1,0 +1,20 @@
+﻿@model _1911066165_DangPhuocKhoa_BigSchool.ViewModels.FollowNotificationViewModel
+@{
+    ViewBag.Title = "FollowNotification";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>FollowNotification</h2>
+<div class="row">
+    <ul class="course">
+        @foreach (var follow in Model.Notifications)
+        {
+            <li>
+                <span class="lecturer">
+                    @follow.Logger
+                    <br />
+                </span>
+            </li>
+        }
+    </ul>
+</div>

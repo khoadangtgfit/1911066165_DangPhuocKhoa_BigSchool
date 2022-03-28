@@ -3,7 +3,6 @@
     ViewBag.Title = "Mine";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>Mine</h2>
 <ul class="course">
     @foreach (var course in Model)
@@ -11,40 +10,42 @@
         <li>
             <div class="date">
                 <div class="month">
-                    @course.DateTime.ToString("MM")
+                    @course.DateTime.ToString("dd-MM")
+                    <small> @course.DateTime.ToString("yyyy")</small>
                 </div>
                 <div class="day">
-                    @course.DateTime.ToString("dd")
+                    <small>@course.DateTime.ToString("HH:mm")</small>
                 </div>
             </div>
             <div class="details">
-                <span>
+                <span class="lecturer">
                     @course.Lecturer.Name
+
                 </span>
-                <span>
+                <span class="category">
                     @course.Category.Name
                 </span>
-
             </div>
             <div class="action">
-                <a href="@Url.Action("Edit","Courses",new { id= course.Id})">Edit</a> |
+                <a href="@Url.Action("Edit","Courses",new { id = course.Id })">Edit</a>|
                 <a href="#" class="js-cancel-course" data-course-id="@course.Id">Cancel</a>
+               
             </div>
         </li>
+
     }
 </ul>
-
 @section scripts
 {
     <script>
         $(document).ready(function () {
             $(".js-cancel-course").click(function (e) {
-                e.preventDefault();
                 var link = $(e.target);
-                bootbox.confirm("Are you sure to cancel ?",
+                bootbox.confirm("Are you sure to cancel?",
                     function () {
                         $.ajax({
-                            url: "/api/courses/" + link.attr("data-course-id"),
+                            type: 'DELETE',
+                            url: "/Courses/Delete/" + link.attr("data-course-id"),
                             method: "DELETE"
                         })
                             .done(function () {
@@ -53,7 +54,7 @@
                                 });
                             })
                             .fail(function () {
-                                alert("Something failed ! khoa");
+                                alert("Something Failed!");
                             });
                     });
             });

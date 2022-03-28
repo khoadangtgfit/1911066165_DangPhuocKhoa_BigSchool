@@ -7,13 +7,13 @@ namespace _1911066165_DangPhuocKhoa_BigSchool.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddAttendance : IMigrationMetadata
+    public sealed partial class AddNameColumnToApplicationUser : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddAttendance));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddNameColumnToApplicationUser));
         
         string IMigrationMetadata.Id
         {
-            get { return "202203211316194_AddAttendance"; }
+            get { return "202203271334499_AddNameColumnToApplicationUser"; }
         }
         
         string IMigrationMetadata.Source

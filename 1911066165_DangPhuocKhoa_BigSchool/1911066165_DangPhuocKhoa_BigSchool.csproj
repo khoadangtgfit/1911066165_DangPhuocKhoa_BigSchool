@@ -614,33 +614,29 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202203211224173_InitialModel.cs" />
-    <Compile Include="Migrations\202203211224173_InitialModel.Designer.cs">
-      <DependentUpon>202203211224173_InitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\202203271330407_InitialModel.cs" />
+    <Compile Include="Migrations\202203271330407_InitialModel.Designer.cs">
+      <DependentUpon>202203271330407_InitialModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202203211226222_CreateTableCourse.cs" />
-    <Compile Include="Migrations\202203211226222_CreateTableCourse.Designer.cs">
-      <DependentUpon>202203211226222_CreateTableCourse.cs</DependentUpon>
+    <Compile Include="Migrations\202203271333052_CreateTableCourse.cs" />
+    <Compile Include="Migrations\202203271333052_CreateTableCourse.Designer.cs">
+      <DependentUpon>202203271333052_CreateTableCourse.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202203211226444_PopulateCategoryTable.cs" />
-    <Compile Include="Migrations\202203211226444_PopulateCategoryTable.Designer.cs">
-      <DependentUpon>202203211226444_PopulateCategoryTable.cs</DependentUpon>
+    <Compile Include="Migrations\202203271333493_PopulateCategoryTable.cs" />
+    <Compile Include="Migrations\202203271333493_PopulateCategoryTable.Designer.cs">
+      <DependentUpon>202203271333493_PopulateCategoryTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202203211316194_AddAttendance.cs" />
-    <Compile Include="Migrations\202203211316194_AddAttendance.Designer.cs">
-      <DependentUpon>202203211316194_AddAttendance.cs</DependentUpon>
+    <Compile Include="Migrations\202203271334499_AddNameColumnToApplicationUser.cs" />
+    <Compile Include="Migrations\202203271334499_AddNameColumnToApplicationUser.Designer.cs">
+      <DependentUpon>202203271334499_AddNameColumnToApplicationUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202203220725132_AddFollowingsTable.cs" />
-    <Compile Include="Migrations\202203220725132_AddFollowingsTable.Designer.cs">
-      <DependentUpon>202203220725132_AddFollowingsTable.cs</DependentUpon>
+    <Compile Include="Migrations\202203271335271_AddAttendance.cs" />
+    <Compile Include="Migrations\202203271335271_AddAttendance.Designer.cs">
+      <DependentUpon>202203271335271_AddAttendance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202203221440364_AddNameColumnToApplicationUser.cs" />
-    <Compile Include="Migrations\202203221440364_AddNameColumnToApplicationUser.Designer.cs">
-      <DependentUpon>202203221440364_AddNameColumnToApplicationUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203241257393_AddIsCanceledColumnToCourse.cs" />
-    <Compile Include="Migrations\202203241257393_AddIsCanceledColumnToCourse.Designer.cs">
-      <DependentUpon>202203241257393_AddIsCanceledColumnToCourse.cs</DependentUpon>
+    <Compile Include="Migrations\202203271338576_AddIsCanceledColumnToCourse.cs" />
+    <Compile Include="Migrations\202203271338576_AddIsCanceledColumnToCourse.Designer.cs">
+      <DependentUpon>202203271338576_AddIsCanceledColumnToCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -670,6 +666,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootbox.all.js" />
+    <Content Include="Scripts\bootbox.all.min.js" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.locales.js" />
+    <Content Include="Scripts\bootbox.locales.min.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -722,6 +724,8 @@
     <Content Include="Views\Courses\Attending.cshtml" />
     <Content Include="Views\Courses\Mine.cshtml" />
     <Content Include="Views\Courses\Following.cshtml" />
+    <Content Include="Views\Courses\FollowingMeList.cshtml" />
+    <Content Include="Views\Courses\FollowNotification.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -742,31 +746,28 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202203211224173_InitialModel.resx">
-      <DependentUpon>202203211224173_InitialModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203211226222_CreateTableCourse.resx">
-      <DependentUpon>202203211226222_CreateTableCourse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203211226444_PopulateCategoryTable.resx">
-      <DependentUpon>202203211226444_PopulateCategoryTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203211316194_AddAttendance.resx">
-      <DependentUpon>202203211316194_AddAttendance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203220725132_AddFollowingsTable.resx">
-      <DependentUpon>202203220725132_AddFollowingsTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203221440364_AddNameColumnToApplicationUser.resx">
-      <DependentUpon>202203221440364_AddNameColumnToApplicationUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203241257393_AddIsCanceledColumnToCourse.resx">
-      <DependentUpon>202203241257393_AddIsCanceledColumnToCourse.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202203271330407_InitialModel.resx">
+      <DependentUpon>202203271330407_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203271333052_CreateTableCourse.resx">
+      <DependentUpon>202203271333052_CreateTableCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203271333493_PopulateCategoryTable.resx">
+      <DependentUpon>202203271333493_PopulateCategoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203271334499_AddNameColumnToApplicationUser.resx">
+      <DependentUpon>202203271334499_AddNameColumnToApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203271335271_AddAttendance.resx">
+      <DependentUpon>202203271335271_AddAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203271338576_AddIsCanceledColumnToCourse.resx">
+      <DependentUpon>202203271338576_AddIsCanceledColumnToCourse.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -80,6 +80,7 @@ namespace _1911066165_DangPhuocKhoa_BigSchool.Controllers
 
             return View(viewModel);
         }
+        [Authorize]
         public ActionResult Following()
         {
             var userId = User.Identity.GetUserId();
@@ -96,17 +97,10 @@ namespace _1911066165_DangPhuocKhoa_BigSchool.Controllers
 
             return View(viewModel);
         }
-        
-
         public ActionResult Mine()
         {
             var userId = User.Identity.GetUserId();
-            var courses = _dbContext.Courses
-                .Where(c => c.LecturerId == userId && c.DateTime > DateTime.Now)
-                .Include(l => l.Lecturer)
-                .Include(c => c.Category)
-                .ToList();
-
+            var courses = _dbContext.Courses.Where(c => c.LecturerId == userId && c.DateTime > DateTime.Now).Include(l => l.Lecturer).Include(c => c.Category).ToList();
             return View(courses);
         }
 
@@ -153,6 +147,62 @@ namespace _1911066165_DangPhuocKhoa_BigSchool.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+        [Authorize]
+        public ActionResult FollowingMeList()
+        {
+            var userId = User.Identity.GetUserId();
+            var followings = _dbContext.Followings
+                .Where(a => a.FollowerId == userId)
+                .Select(a => a.Followee)
+                .ToList();
+
+            var viewModel = new FollowingViewModel
+            {
+                Followings = followings,
+                ShowAction = User.Identity.IsAuthenticated
+            };
+
+            return View(viewModel);
+        }
+        public ActionResult Delete(int id)
+        {
+            var userId = User.Identity.GetUserId();
+            var course = _dbContext.Courses.Single(c => c.Id == id && c.LecturerId == userId);
+            _dbContext.Courses.Remove(course);
+            _dbContext.SaveChanges();
+
+            return RedirectToAction("Mine", "Courses");
+        }
+        [Authorize]
+        public ActionResult FollowNotification()
+        {
+            var viewModel = new FollowNotificationViewModel
+            {
+                Notifications = _dbContext.FollowingNotifications.ToList()
+            };
+
+            return View(viewModel);
+        }
+        public ActionResult UnFollow(string followeeId, string followerId)
+        {
+            var follow = _dbContext.Followings
+                .Where(x => x.FolloweeId == followeeId && x.FollowerId == followerId)
+                .Include(x => x.Followee)
+                .Include(x => x.Follower).SingleOrDefault();
+
+            var followingNotification = new FollowingNotification()
+            {
+                Id = 0,
+                Logger = follow.Follower.Name + " unfollow " + follow.Followee.Name
+            };
+
+            _dbContext.FollowingNotifications.Add(followingNotification);
+
+            _dbContext.Followings.Remove(follow);
+            _dbContext.SaveChanges();
+            return RedirectToAction("Following", "Courses");
+        }
+
 
     }
 }

@@ -1,11 +1,12 @@
-﻿@using Microsoft.AspNet.Identity;
-@model _1911066165_DangPhuocKhoa_BigSchool.ViewModels.FollowingViewModel
+﻿@model _1911066165_DangPhuocKhoa_BigSchool.ViewModels.FollowingViewModel
+@using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "Following";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h2>Lecture I'm Flowing</h2>
 
-<h2>Following</h2>
 <div class="row">
     <ul class="course">
         @foreach (var follow in Model.Followings)
